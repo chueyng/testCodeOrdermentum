@@ -17,8 +17,26 @@ var patternRNATrans = function (inDNA) {
     } else {
       rnaPos = RNA.length - 4;
     }
-
+    console.log('Result for single RNA= ', RNA[rnaPos]);
     return result  = RNA[rnaPos];
 }
 
+var allRNATrans = function (str) {
+
+  var result = "";
+  var REVERSE_DNA = RNA.reverse().join("");
+
+  for (var i = 0; i < str.length; i++) {
+    var dna = str[i];
+    var indexOfDNA = DNA.indexOf(dna);
+    var reverseRNA = REVERSE_DNA.charAt(indexOfDNA);
+    result += reverseRNA;
+  }
+
+  console.log('Result= ',result);
+  return result;
+
+}
+
 patternRNATrans('A');
+allRNATrans('ACGTGGTCTTAA')
